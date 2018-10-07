@@ -23,7 +23,9 @@ class RomanConverter extends Component {
         e.preventDefault();
         const { integer } = this.state;
         try {
-            const result = await axios.post(`http://localhost:2222/api/roman`, {integer});
+            const result = await axios.post(`http://localhost:2222/api/roman`, {
+                integer
+            });
             this.setState({ data: result.data });
         } catch(err) {
             console.log(err);
@@ -32,9 +34,11 @@ class RomanConverter extends Component {
 
     submitRomanHandler = async (e) => {
         e.preventDefault();
-        const { integer } = this.state;
+        const { roman } = this.state;
         try {
-            const result = await axios.post(`http://localhost:2222/api/roman`, {integer});
+            const result = await axios.post(`http://localhost:2222/api/integer`, {
+                roman
+            });
             this.setState({ data: result.data });
         } catch(err) {
             console.log(err);
