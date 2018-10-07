@@ -1,10 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import axios from 'axios';
 
 import Input from '../components/UI/Input';
 
+
 class RomanConverter extends Component {
     state = {
-        integer: ''
+        integer: '',
+        data: {}
     }
 
     onChangeHandler = (e) => {
@@ -13,23 +16,34 @@ class RomanConverter extends Component {
         })
     }
 
-    submitHandler = (e) => {
+    submitHandler = async (e) => {
         e.preventDefault();
         const { integer } = this.state;
-        console.log(integer)
+        try {
+            const result = await axios.post(`http://localhost:2222/api/roman`, {integer});
+            this.setState({ data: result.data });
+        } catch(err) {
+            console.log(err);
+        }
     }
 
   render() {
-      const { integer } = this.state;
+      const { integer, data } = this.state;
+      const { status, errors } = data;
+      console.log(data)
+      if(!status){
+          console.log(errors);
+      }
+
     return (
       <form>
         <Input 
-            type="number" 
+            type="text" 
             name='integer' 
             value={integer} 
             change={this.onChangeHandler}
             label = "Integer to roman"
-            placeholder="Enter an integer"
+            placeholder="Enter an "
         />
         {" "}
         <Input
