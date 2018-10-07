@@ -8,7 +8,6 @@ class RomanConverter extends Component {
     }
 
     onChangeHandler = (e) => {
-        console.log(e.target.value)
         this.setState({
             roman: e.target.value
         })

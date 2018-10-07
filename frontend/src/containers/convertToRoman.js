@@ -8,22 +8,36 @@ class RomanConverter extends Component {
     }
 
     onChangeHandler = (e) => {
-        console.log(e.target.value)
         this.setState({
             integer: e.target.value
         })
     }
+
+    submitHandler = (e) => {
+        e.preventDefault();
+        const { integer } = this.state;
+        console.log(integer)
+    }
+
   render() {
       const { integer } = this.state;
     return (
-      <div>
+      <form>
         <Input 
             type="number" 
             name='integer' 
             value={integer} 
             change={this.onChangeHandler}
+            label = "Integer to roman"
+            placeholder="Enter an integer"
         />
-      </div>
+        {" "}
+        <Input
+            type="submit"
+            value="Get Roman"
+            clicked={this.submitHandler}
+        />    
+      </form>
     )
   }
 }
