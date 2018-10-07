@@ -1,0 +1,13 @@
+form {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.form-group {
+    display: flex;
+}
+
+input {
+    margin-left: 1rem;
+}

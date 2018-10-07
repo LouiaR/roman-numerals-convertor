@@ -3,18 +3,16 @@ import React, { Fragment } from 'react'
 const input = ({
     type, 
     name, 
-    value, 
-    label, 
+    itemValue,
     change, 
     placeholder,
     clicked 
     }) => (
         <Fragment>
-            <label>{label}</label>
             <input 
                 type={type} 
                 name={name} 
-                value={value} 
+                value={itemValue} 
                 onChange={change} 
                 placeholder={placeholder}
                 onClick={clicked}
