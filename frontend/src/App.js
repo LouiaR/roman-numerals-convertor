@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Layout from './components/Layout';
+import RomanConverter from './containers/convertToRoman';
 
 class App extends Component {
   render() {
@@ -8,6 +9,7 @@ class App extends Component {
       <div className="App">
         <Layout>
           <h1>Welcome</h1>
+          <RomanConverter />
         </Layout>
       </div>
     );

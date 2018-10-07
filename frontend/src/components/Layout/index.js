@@ -3,9 +3,9 @@ import React from 'react'
 const layout = props => {
   return (
     <div>
-      <heasder>
+      <header>
         <h1>Roman Numeral </h1>
-      </heasder>
+      </header>
       <main>
         {props.children}
       </main>
