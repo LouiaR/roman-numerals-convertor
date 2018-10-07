@@ -12,20 +12,22 @@ const convertToInteger = ({
     return (
         <form>
             <label>Roman to Integer </label>
-            <Input 
-                type="text" 
-                name='roman' 
-                itemValue={itemValue} 
-                change={change}
-                placeholder="Enter a roman number... "
-            />
-        {" "}
-            <Input
-                type="submit"
-                value="Get Roman"
-                clicked={clicked}
-            />    
-      </form>
+            <div className="form-group">
+                <Input 
+                    type="text" 
+                    name='roman' 
+                    itemValue={itemValue} 
+                    change={change}
+                    placeholder="Enter a roman number... "
+                />
+            {" "}
+                <Input
+                    type="submit"
+                    value="Get Roman"
+                    clicked={clicked}
+                />
+            </div>    
+        </form>
     );
 };
 
