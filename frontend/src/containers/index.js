@@ -111,7 +111,7 @@ class RomanConverter extends Component {
                     <h4>What you can:</h4> <br/>
                     <p>Convert integer to roman </p>
                     <p>Convert roman to integer </p>
-                    <p>Press the button below to choose conversion</p>
+                    <p>Press the button below to choose converter</p>
                     <button 
                         className="btn"
                         onClick={this.toggleConverterHandle}

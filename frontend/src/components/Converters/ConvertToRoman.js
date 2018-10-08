@@ -15,7 +15,7 @@ const convertToRoman = ({
         <label> <h2>Integer to Roman</h2> </label>
         <div className="form-group">
             <Input 
-                type="text" 
+                type="number" 
                 name='integer' 
                 itemValue={userInput} 
                 change={change}
