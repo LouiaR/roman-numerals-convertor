@@ -4,11 +4,6 @@
   padding: 0;
 }
 
-:root {
-  --main-color: green;
-  --main-padding: 0 2rem;
-}
-
 body {
   font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
@@ -18,6 +13,7 @@ body {
   padding: var(--main-padding);
   display: grid;
   grid-gap: 3rem;
+  overflow: hidden;
 }
 
 header {

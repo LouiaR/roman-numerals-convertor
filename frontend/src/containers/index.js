@@ -1,15 +1,17 @@
 import React, { Component, Fragment } from 'react';
 import axios from 'axios';
 
-import ConvertToRoman from '../components/Converters/ConvertToRoman'
-import ConvertToInteger from '../components/Converters/ConvertToInteger'
+import ConvertToRoman from '../components/Converters/ConvertToRoman';
+import ConvertToInteger from '../components/Converters/ConvertToInteger';
+import './index.css';
 
 class RomanConverter extends Component {
     state = {
         data: '',
         integer: '',
         roman: '',
-        showRoman: true
+        showRoman: true,
+        isResult: false
     }
 
     onChangeHandler = (e) => {
@@ -26,7 +28,10 @@ class RomanConverter extends Component {
             const result = await axios.post(`http://localhost:2222/api/roman`, {
                 integer
             });
-            this.setState({ data: result.data });
+            this.setState({ 
+                data: result.data,
+                isResult: true 
+                });
         } catch(err) {
             console.log(err);
         }
@@ -39,7 +44,10 @@ class RomanConverter extends Component {
             const result = await axios.post(`http://localhost:2222/api/integer`, {
                 roman
             });
-            this.setState({ data: result.data });
+            this.setState({ 
+                data: result.data,
+                isResult: true 
+                });
         } catch(err) {
             console.log(err);
         }
@@ -62,14 +70,14 @@ class RomanConverter extends Component {
       if(!status){
           console.log(errors);
       }
-    let result =  (
+    let displayInpuField =  (
         <ConvertToRoman 
             change={this.onChangeHandler}
             clicked={this.submitIntegerHandler}
         />
     )
     if(!showRoman) {
-        result = (<ConvertToInteger
+        displayInpuField = (<ConvertToInteger
             change={this.onChangeHandler}
             clicked={this.submitRomanHandler}
         />);
@@ -81,9 +89,15 @@ class RomanConverter extends Component {
                 <h4>What you can:</h4> <br/>
                 <p>Convert integer to roman </p>
                 <p>Convert roman to integer </p>
+                <p>Press the button below to choose conversion</p>
+                <button 
+                    className="btn"
+                    onClick={this.toggleConverterHandle}
+                >
+                    {showRoman ? 'Convert Roman to Integer': 'Convert Interger to Roman'}
+                </button>
             </div>
-            {result}
-            <button onClick={this.toggleConverterHandle}>Reset</button>
+            {displayInpuField}
         </Fragment>
     );
   }

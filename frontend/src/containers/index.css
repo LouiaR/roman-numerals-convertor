@@ -1,0 +1,19 @@
+.btn {
+    margin: 1.2rem 0;
+    padding: .7rem;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #ececec;
+    font-weight: 600;
+    transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -ms-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+}
+
+.btn:hover,
+.btn:focus {
+    background: #cdcdcd;
+    color: white;
+}
