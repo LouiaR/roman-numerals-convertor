@@ -12,7 +12,7 @@ const convertToInteger = ({
 }) => {
     return (
         <form>
-            <label>Roman to Integer </label>
+            <label><h2>Roman to Integer</h2> </label>
             <div className="form-group">
                 <Input 
                     type="text" 
@@ -24,7 +24,7 @@ const convertToInteger = ({
             {" "}
                 <Input
                     type="submit"
-                    value="Get Roman"
+                    itemValue="Convert to Integer"
                     clicked={clicked}
                 />
             </div>

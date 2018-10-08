@@ -1,4 +1,5 @@
-.btn {
+.btn,
+input[type="submit"] {
     margin: 1.2rem 0;
     padding: .7rem;
     border-radius: 5px;
@@ -13,7 +14,9 @@
 }
 
 .btn:hover,
-.btn:focus {
-    background: #cdcdcd;
+.btn:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+    background: green;
     color: white;
 }

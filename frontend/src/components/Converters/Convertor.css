@@ -7,19 +7,21 @@ label,
     padding: 2rem 0;
 }
 
+label h2 {
+    font-weight: 500;
+}
+
 input {
-   padding: 8px  
+   padding: .7rem;  
 }
 
 .result {
     width: 50%;
-    background: blue;
+    background: rgb(205, 205, 205);
     margin: 0 auto;
-}
-
-.result {
-  -webkit-animation-name: fadeInUp;
-  animation-name: fadeInUp;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 600;
 }
 
 .error-msg {
@@ -28,32 +30,9 @@ input {
     font-weight: 600;
 }
 
-@-webkit-keyframes fadeInUp {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
-    transistion: all .3s ease-in-out;
-  }
 
-  to {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
+@media (max-width: 560px) {
+    .result {
+        width: 80%;
+    }
 }
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
-  }
-
-  to {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-}
-
