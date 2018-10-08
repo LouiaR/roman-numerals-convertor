@@ -6,7 +6,7 @@ const result = ({
 }) => {
   return (
     <div className="result">
-        {roman && <p>{integer = roman}</p>}
+        {roman && <p>{integer} = {roman}</p>}
     </div>
   )
 }

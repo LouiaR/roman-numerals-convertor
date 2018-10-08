@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import ConvertToRoman from '../components/Converters/ConvertToRoman';
 import ConvertToInteger from '../components/Converters/ConvertToInteger';
+import Result from '../components/Result';
 import './index.css';
 
 class RomanConverter extends Component {
@@ -11,13 +12,14 @@ class RomanConverter extends Component {
         integer: '',
         roman: '',
         showRoman: true,
-        isResult: false
+        isResult: false,
+        errors: '',
     }
 
     onChangeHandler = (e) => {
-        console.log(e.target.name, e.target.value)
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
+            errors: ''
         })
     }
 
@@ -30,10 +32,13 @@ class RomanConverter extends Component {
             });
             this.setState({ 
                 data: result.data,
-                isResult: true 
-                });
+                isResult: true,
+                integer: ''
+            });
         } catch(err) {
-            console.log(err);
+            this.setState({
+                errors: err.response.data
+            })
         }
     }
 
@@ -46,61 +51,79 @@ class RomanConverter extends Component {
             });
             this.setState({ 
                 data: result.data,
-                isResult: true 
+                isResult: true,
+                roman: ''
                 });
         } catch(err) {
-            console.log(err);
+            this.setState({
+                errors: err.response.data
+            })
         }
     }
 
     toggleConverterHandle = () => {
         this.setState({
-            showRoman: !this.state.showRoman
+            showRoman: !this.state.showRoman,
         })
     }
 
-  render() {
-      const {
-          data,
-          showRoman
-      } = this.state;
+    render() {
+        const {
+            data,
+            errors,
+            showRoman,
+            isResult,
+            integer,
+            roman,
+        } = this.state;
 
-      const { status, errors } = data;
-      console.log(data);
-      if(!status){
-          console.log(errors);
-      }
-    let displayInpuField =  (
-        <ConvertToRoman 
-            change={this.onChangeHandler}
-            clicked={this.submitIntegerHandler}
-        />
-    )
-    if(!showRoman) {
-        displayInpuField = (<ConvertToInteger
-            change={this.onChangeHandler}
-            clicked={this.submitRomanHandler}
-        />);
+        let result = null;
+        if(data.success) {
+            result = (
+                isResult && 
+                <Result 
+                    roman={data.roman}
+                    integer={data.integer}
+                    error={errors}
+                />
+            );
+        } 
+        let displayInpuField =  (
+            <ConvertToRoman 
+                change={this.onChangeHandler}
+                clicked={this.submitIntegerHandler}
+                userInput={integer}
+                error={errors}
+            />
+        )
+        if(!showRoman) {
+            displayInpuField = (<ConvertToInteger
+                change={this.onChangeHandler}
+                clicked={this.submitRomanHandler}
+                userInput={roman}
+                error={errors}
+            />);
+        }
+        return(
+            <Fragment>
+                <div className="header-title"> 
+                    <h1>Welcome!</h1> 
+                    <h4>What you can:</h4> <br/>
+                    <p>Convert integer to roman </p>
+                    <p>Convert roman to integer </p>
+                    <p>Press the button below to choose conversion</p>
+                    <button 
+                        className="btn"
+                        onClick={this.toggleConverterHandle}
+                    >
+                        {showRoman ? 'Convert Roman to Integer': 'Convert Interger to Roman'}
+                    </button>
+                </div>
+                {displayInpuField}
+                {result}
+            </Fragment>
+        );
     }
-    return(
-        <Fragment>
-            <div className="header-title"> 
-                <h1>Welcome!</h1> 
-                <h4>What you can:</h4> <br/>
-                <p>Convert integer to roman </p>
-                <p>Convert roman to integer </p>
-                <p>Press the button below to choose conversion</p>
-                <button 
-                    className="btn"
-                    onClick={this.toggleConverterHandle}
-                >
-                    {showRoman ? 'Convert Roman to Integer': 'Convert Interger to Roman'}
-                </button>
-            </div>
-            {displayInpuField}
-        </Fragment>
-    );
-  }
 }
 
 export default RomanConverter;

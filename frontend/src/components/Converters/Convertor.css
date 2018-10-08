@@ -1,5 +1,6 @@
 form,
-label {
+label,
+.result {
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -9,3 +10,50 @@ label {
 input {
    padding: 8px  
 }
+
+.result {
+    width: 50%;
+    background: blue;
+    margin: 0 auto;
+}
+
+.result {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+.error-msg {
+    padding: 1rem;
+    color: rgb(223, 5, 5);
+    font-weight: 600;
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    transistion: all .3s ease-in-out;
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+

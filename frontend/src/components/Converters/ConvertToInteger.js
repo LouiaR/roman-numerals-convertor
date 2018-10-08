@@ -7,7 +7,8 @@ import './Convertor.css';
 const convertToInteger = ({
     change,
     clicked,
-    itemValue
+    userInput,
+    error
 }) => {
     return (
         <form>
@@ -16,7 +17,7 @@ const convertToInteger = ({
                 <Input 
                     type="text" 
                     name='roman' 
-                    itemValue={itemValue} 
+                    itemValue={userInput} 
                     change={change}
                     placeholder="Enter a roman number... "
                 />
@@ -26,7 +27,8 @@ const convertToInteger = ({
                     value="Get Roman"
                     clicked={clicked}
                 />
-            </div>    
+            </div>
+            {error && userInput.length > 0  && <p className="error-msg">{error.message}</p>}    
         </form>
     );
 };

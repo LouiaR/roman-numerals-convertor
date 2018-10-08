@@ -7,7 +7,8 @@ import './Convertor.css';
 const convertToRoman = ({
     change,
     clicked,
-    itemValue
+    userInput,
+    error,
 }) => {
   return (
     <form>
@@ -16,7 +17,7 @@ const convertToRoman = ({
             <Input 
                 type="text" 
                 name='integer' 
-                itemValue={itemValue} 
+                itemValue={userInput} 
                 change={change}
                 placeholder="Enter an integer..."
         />
@@ -27,6 +28,7 @@ const convertToRoman = ({
                 clicked={clicked}
             />    
         </div>
+        {error && userInput.length > 0  && <p className="error-msg">{error.message}</p>}
     </form>
 )
 };
