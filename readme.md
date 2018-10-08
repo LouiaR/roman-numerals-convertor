@@ -18,8 +18,8 @@ To Run
 ## Approach
 
 ### Features
-With the time given, I have chosen a combination of features and decided on how
-the structure of the application should look like. I then followed agile development approach to develop the application.
+With the time given, I have chosen a combination of features, decided on how
+the structure of the application should look like and focus on the functionalities of the app. I then followed agile development approach to develop the application.
 
 With this application, users can:
 - convert a normal number (1 up to 3999) to roman number (I, V, M...)
@@ -36,9 +36,12 @@ On the client the user has to fill an input field with the type of number he wan
 
 The server uses Node.js to create a server and the frontend uses a simple Node.js module called `axios` for making http calls to communicate with the server.
 
+I added test on server (library folder)
+
 ### Future improvements
 I'd like to keep expanding this project to hone my existing skills, as well as
 to explore new technologies.
+Improve UI for better user experience
 
 ## Licence
 .  MIT
