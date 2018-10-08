@@ -12,14 +12,16 @@
 body {
   font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
-  background: url(http://img15.deviantart.net/6cbb/i/2011/362/d/c/mmxii_by_speedyroby-d4kgw82.jpg) no-repeat;
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  color: #fff;
 }
 
 .App {
   padding: var(--main-padding);
+  display: grid;
+  grid-gap: 3rem;
 }
 
+header {
+  height: 8vh;
+  background: rgb(205, 205, 205);
+  margin: 0 -2rem;
+}

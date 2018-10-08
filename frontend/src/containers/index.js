@@ -54,8 +54,6 @@ class RomanConverter extends Component {
   render() {
       const {
           data,
-        //   integer,
-        //   roman,
           showRoman
       } = this.state;
 
@@ -68,18 +66,22 @@ class RomanConverter extends Component {
         <ConvertToRoman 
             change={this.onChangeHandler}
             clicked={this.submitIntegerHandler}
-            // itemValue={roman}
         />
     )
     if(!showRoman) {
         result = (<ConvertToInteger
             change={this.onChangeHandler}
             clicked={this.submitRomanHandler}
-            // itemValue={integer}
         />);
     }
     return(
         <Fragment>
+            <div className="header-title"> 
+                <h1>Welcome!</h1> 
+                <h4>What you can:</h4> <br/>
+                <p>Convert integer to roman </p>
+                <p>Convert roman to integer </p>
+            </div>
             {result}
             <button onClick={this.toggleConverterHandle}>Reset</button>
         </Fragment>
