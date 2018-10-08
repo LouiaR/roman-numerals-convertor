@@ -3,8 +3,8 @@ This application converts normal number to roman numeral and roman numeral to no
 
 To Run
 ============
-* Backend
-1. `> cd backend `
+* Server
+1. `> cd server `
 2. `> npm install or npm i `,  install all dependency .
 3. `> npm start`, start server.
 4. `> npm test`, run test.
@@ -27,14 +27,14 @@ With this application, users can:
 
 ### Main frameworks and libraries
 - Frontend: HTML, CSS, ES6, JavaScript, React
-- Backend: Node.js, Express.js, Jest
+- Server: Node.js, Express.js, Jest
 
 
 ### Application architecture
-In the backend I create two endpoint API which respectively send to the frontend the ouput of the conversion of normal number to roman number and the outpout of roman number to normal number in json format. 
-On the client the user has to fill an input field with the type of number he want to convert. That input is then send to backend where conversion occurs and the outut is send back to the client.
+In the server I create two endpoint API which respectively send to the frontend the ouput of the conversion of normal number to roman number and the outpout of roman number to normal number in json format. 
+On the client the user has to fill an input field with the type of number he want to convert. That input is then send to server where conversion occurs and the outut is send back to the client.
 
-The backend uses Node.js to create a server and the frontend uses a simple Node.js module called `axios` for making http calls to communicate with the server.
+The server uses Node.js to create a server and the frontend uses a simple Node.js module called `axios` for making http calls to communicate with the server.
 
 ### Future improvements
 I'd like to keep expanding this project to hone my existing skills, as well as
